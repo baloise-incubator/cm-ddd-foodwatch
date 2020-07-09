@@ -13,7 +13,8 @@ pipeline {
         stage("Build and Test") {
             steps {
                 notifyBitBucket state: "INPROGRESS"
-                mavenbuild jdkVersion: [groupId: "ch.basler.openjdk", artifactId : "OpenJDK14-hotspot", version: "jdk.14.0.1.7.1", packaging: "zip"], mavenArgs: "-DcreateChecksum=true -Dmaven.javadoc.skip=true", uploadArtifactsWithBranchnameInVersion: true
+                mavenbuild jdkVersion: [groupId: "jenkins.tools.java", artifactId : "openJDK", version: "12_linux-x64", packaging: "tar.gz"],
+                        mavenArgs: "-DcreateChecksum=true -Dmaven.javadoc.skip=true", uploadArtifactsWithBranchnameInVersion: true
                 script {
                     pomInfo = readMavenPom file: 'pom.xml'
                     currentBuild.description = pomInfo.version
