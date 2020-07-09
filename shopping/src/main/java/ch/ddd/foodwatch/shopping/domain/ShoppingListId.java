@@ -3,8 +3,10 @@ package ch.ddd.foodwatch.shopping.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@AllArgsConstructor
+import java.util.UUID;
+
 @Getter
-public class ShoppingList {
-    private final ShoppingListId shoppingListId;
+@AllArgsConstructor
+public class ShoppingListId {
+    private final UUID id;
 }
