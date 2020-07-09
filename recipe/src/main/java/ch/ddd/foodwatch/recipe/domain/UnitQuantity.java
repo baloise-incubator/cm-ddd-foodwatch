@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 @Builder(toBuilder = true)
-public class Ingredient {
-    private final FoodId food;
-    private final UnitQuantity unitQuantity;
+public class UnitQuantity {
+    private final Integer quantity;
+    private final Unit unit;
 }

@@ -11,6 +11,6 @@ import java.util.List;
 @Builder(toBuilder = true)
 public class Recipe {
     private final Integer servings;
-    private final List<Ingredient> foodList;
-    private final List<String> steps;
+    private final List<Ingredient> ingredientList;
+    private final List<RecipeStep> recipeSteps;
 }
