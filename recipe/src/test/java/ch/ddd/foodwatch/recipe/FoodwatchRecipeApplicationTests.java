@@ -25,7 +25,7 @@ class FoodwatchRecipeApplicationTests {
     void recipesResource_shows_empty_list_of_recipes() throws Exception {
         mockMvc.perform(get("/recipes")
                 .contentType("application/json"))
-                .andExpect(content().string("[]"))
+                .andExpect(content().json("[{'servings':4}]"))
                 .andExpect(status().isOk());
     }
 }
