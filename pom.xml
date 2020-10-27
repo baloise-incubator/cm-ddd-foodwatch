@@ -12,5 +12,6 @@
         <module>food</module>
         <module>recipe</module>
         <module>shopping</module>
+        <module>order</module>
     </modules>
 </project>
