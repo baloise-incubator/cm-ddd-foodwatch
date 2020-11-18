@@ -6,5 +6,4 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public class Order {
-    private final OrderId orderId;
 }

@@ -15,8 +15,8 @@ import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-class CreateShoppingListServiceTest {
-    private ch.ddd.foodwatch.order.application.CreateShoppingListService cut;
+class OrderServiceTest {
+    private ch.ddd.foodwatch.order.application.OrderService cut;
 
     @Mock
     private ShoppingDomainAdapter shoppingDomainAdapter;
@@ -27,7 +27,7 @@ class CreateShoppingListServiceTest {
     @BeforeEach
     void setUp() {
         initMocks(this);
-        cut = new CreateShoppingListService(shoppingDomainAdapter, recipeDomainAdapter);
+        cut = new OrderService(shoppingDomainAdapter, recipeDomainAdapter);
     }
 
     @Test

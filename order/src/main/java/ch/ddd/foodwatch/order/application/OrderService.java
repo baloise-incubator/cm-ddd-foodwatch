@@ -8,13 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CreateShoppingListService {
+public class OrderService {
 
     private final ShoppingDomainAdapter shoppingDomainAdapter;
     private final RecipeDomainAdapter recipeDomainAdapter;
 
     @Autowired
-    public CreateShoppingListService(ShoppingDomainAdapter shoppingDomainAdapter, RecipeDomainAdapter recipeDomainAdapter) {
+    public OrderService(ShoppingDomainAdapter shoppingDomainAdapter, RecipeDomainAdapter recipeDomainAdapter) {
         this.shoppingDomainAdapter = shoppingDomainAdapter;
         this.recipeDomainAdapter = recipeDomainAdapter;
     }
