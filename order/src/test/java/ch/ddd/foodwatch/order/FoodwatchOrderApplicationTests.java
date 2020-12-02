@@ -21,12 +21,7 @@ class FoodwatchShoppingListApplicationTests {
     private MockMvc mockMvc;
 
     @Test
-    void contextLoads() throws Exception {
-        var id = "fcbe4529-cd46-4c02-a36b-9ba81cd98ce4";
-        String expectedJsonContent = "{\"orderId\":{\"id\":\"fcbe4529-cd46-4c02-a36b-9ba81cd98ce4\"}}";
-        this.mockMvc.perform(get("/orders/" + id))
-                .andDo(print())
-                .andExpect(content().json(expectedJsonContent));
+    void contextLoads() {
     }
 
 

@@ -4,6 +4,7 @@ import ch.ddd.foodwatch.order.infrastructure.recipe.RecipeDomainAdapter;
 import ch.ddd.foodwatch.order.infrastructure.shopping.ShoppingDomainAdapter;
 import ch.ddd.foodwatch.recipe.domain.Ingredient;
 import ch.ddd.foodwatch.recipe.domain.Recipe;
+import ch.ddd.foodwatch.recipe.domain.RecipeId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -32,7 +33,7 @@ class OrderServiceTest {
 
     @Test
     void service_calls_shopping_adapter_with_ingredients() {
-        var recipeId = "some-recipe-id";
+        var recipeId = new RecipeId("some-recipe-id");
 
         var ingredients = List.of(Ingredient.builder().build());
         var recipe = Recipe.builder()

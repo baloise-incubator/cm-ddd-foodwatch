@@ -2,6 +2,7 @@ package ch.ddd.foodwatch.recipe.application;
 
 import ch.ddd.foodwatch.recipe.domain.Ingredient;
 import ch.ddd.foodwatch.recipe.domain.Recipe;
+import ch.ddd.foodwatch.recipe.domain.RecipeId;
 import ch.ddd.foodwatch.recipe.infrastructure.persistence.RecipeRepository;
 import ch.ddd.foodwatch.recipe.infrastructure.shopping.ShoppingDomainAdapter;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,7 +34,7 @@ class CreateShoppingListServiceTest {
 
     @Test
     void service_calls_shopping_adapter_with_ingredients() {
-        var recipeId = "some-recipe-id";
+        var recipeId = new RecipeId("some-recipe-id");
         var expectedShoppingListId = "some-shopping-list-id";
 
         var ingredients = List.of(Ingredient.builder().build());

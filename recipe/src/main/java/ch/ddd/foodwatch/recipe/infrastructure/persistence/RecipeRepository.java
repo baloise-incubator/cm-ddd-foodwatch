@@ -35,7 +35,7 @@ public class RecipeRepository {
         return Collections.unmodifiableList(recipes);
     }
 
-    public Recipe findRecipeById(String recipeId) {
+    public Recipe findRecipeById(RecipeId recipeId) {
         return recipes.get(0);  // TODO implement recipe ids
     }
 }
