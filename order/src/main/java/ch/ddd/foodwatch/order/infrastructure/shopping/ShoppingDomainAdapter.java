@@ -1,16 +1,18 @@
 package ch.ddd.foodwatch.order.infrastructure.shopping;
 
-import ch.ddd.foodwatch.recipe.domain.Ingredient;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import ch.ddd.foodwatch.recipe.api.dto.IngredientDto;
+
 
 @Component
 public class ShoppingDomainAdapter {
 
-    public String createShoppingList(List<Ingredient> ingredients) {
-        //TODO call shopping service
+    public String createShoppingList(List<IngredientDto> ingredients) {
+        // TODO call shopping service
         return "some-shopping-list-id";
     }
 }

@@ -37,7 +37,7 @@
         </dependency>
         <dependency>
             <groupId>ch.ddd.foodwatch</groupId>
-            <artifactId>foodwatch-recipe-domain</artifactId>
+            <artifactId>foodwatch-recipe-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>

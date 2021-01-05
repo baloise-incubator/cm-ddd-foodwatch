@@ -34,7 +34,7 @@ class CreateShoppingListServiceTest {
 
     @Test
     void service_calls_shopping_adapter_with_ingredients() {
-        var recipeId = new RecipeId("some-recipe-id");
+        var recipeId = new RecipeId(1);
         var expectedShoppingListId = "some-shopping-list-id";
 
         var ingredients = List.of(Ingredient.builder().build());

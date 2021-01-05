@@ -6,5 +6,5 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class RecipeId {
-    private final String value;
+    private final int value;
 }

@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ch.ddd.foodwatch</groupId>
-    <artifactId>foodwatch-recipe-domain</artifactId>
+    <artifactId>foodwatch-recipe-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>foodwatch-recipe-domain</name>
-    <description>Recipe context domain</description>
+    <name>foodwatch-recipe-api</name>
+    <description>Recipe context API</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

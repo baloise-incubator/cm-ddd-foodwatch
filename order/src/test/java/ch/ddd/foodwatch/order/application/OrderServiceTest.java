@@ -1,20 +1,17 @@
 package ch.ddd.foodwatch.order.application;
 
-import ch.ddd.foodwatch.order.infrastructure.recipe.RecipeDomainAdapter;
-import ch.ddd.foodwatch.order.infrastructure.shopping.ShoppingDomainAdapter;
-import ch.ddd.foodwatch.recipe.domain.Ingredient;
-import ch.ddd.foodwatch.recipe.domain.Recipe;
-import ch.ddd.foodwatch.recipe.domain.RecipeId;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-
-import java.util.List;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+
+import ch.ddd.foodwatch.order.infrastructure.recipe.RecipeDomainAdapter;
+import ch.ddd.foodwatch.order.infrastructure.shopping.ShoppingDomainAdapter;
+import ch.ddd.foodwatch.recipe.api.dto.RecipeDto;
 
 class OrderServiceTest {
     private ch.ddd.foodwatch.order.application.OrderService cut;
@@ -33,17 +30,15 @@ class OrderServiceTest {
 
     @Test
     void service_calls_shopping_adapter_with_ingredients() {
-        var recipeId = new RecipeId("some-recipe-id");
+        var recipeId = 1;
 
-        var ingredients = List.of(Ingredient.builder().build());
-        var recipe = Recipe.builder()
-                .ingredientList(ingredients)
-                .build();
+        // var ingredients = List.of(Ingredient.builder().build());
+        var recipe = new RecipeDto(1);
 
         when(recipeDomainAdapter.findRecipeById(recipeId))
                 .thenReturn(recipe);
-        when(shoppingDomainAdapter.createShoppingList(ingredients))
-                .thenReturn("some-id");
+        // when(shoppingDomainAdapter.createShoppingList(ingredients))
+        // .thenReturn("some-id");
 
         String shoppingListId = cut.createShoppingListForRecipeWithId(recipeId);
 

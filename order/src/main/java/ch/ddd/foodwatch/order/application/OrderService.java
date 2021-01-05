@@ -1,12 +1,12 @@
 package ch.ddd.foodwatch.order.application;
 
 
-import ch.ddd.foodwatch.order.infrastructure.recipe.RecipeDomainAdapter;
-import ch.ddd.foodwatch.order.infrastructure.shopping.ShoppingDomainAdapter;
-import ch.ddd.foodwatch.recipe.domain.Recipe;
-import ch.ddd.foodwatch.recipe.domain.RecipeId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import ch.ddd.foodwatch.order.infrastructure.recipe.RecipeDomainAdapter;
+import ch.ddd.foodwatch.order.infrastructure.shopping.ShoppingDomainAdapter;
+import ch.ddd.foodwatch.recipe.api.dto.RecipeDto;
 
 @Service
 public class OrderService {
@@ -20,8 +20,8 @@ public class OrderService {
         this.recipeDomainAdapter = recipeDomainAdapter;
     }
 
-    public String createShoppingListForRecipeWithId(RecipeId recipeId) {
-        Recipe recipe = recipeDomainAdapter.findRecipeById(recipeId);
-        return shoppingDomainAdapter.createShoppingList(recipe.getIngredientList());
+    public String createShoppingListForRecipeWithId(int recipeId) {
+        RecipeDto recipe = recipeDomainAdapter.findRecipeById(recipeId);
+        return "";
     }
 }
