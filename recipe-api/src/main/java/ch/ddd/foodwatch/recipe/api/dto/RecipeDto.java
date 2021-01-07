@@ -1,8 +1,16 @@
 package ch.ddd.foodwatch.recipe.api.dto;
 
-import lombok.Data;
-
-@Data
 public class RecipeDto {
-    private final int recipeId;
+    private int recipeId;
+
+    public RecipeDto(){this(0);}
+    public RecipeDto(int recipeId){ this.recipeId = recipeId;}
+
+    public int getRecipeId() {
+        return recipeId;
+    }
+
+    public void setRecipeId(int recipeId) {
+        this.recipeId = recipeId;
+    }
 }

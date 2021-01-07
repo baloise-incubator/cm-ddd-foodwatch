@@ -22,6 +22,6 @@ public class OrderService {
 
     public String createShoppingListForRecipeWithId(int recipeId) {
         RecipeDto recipe = recipeDomainAdapter.findRecipeById(recipeId);
-        return "";
+        return String.valueOf(recipe.getRecipeId());
     }
 }
