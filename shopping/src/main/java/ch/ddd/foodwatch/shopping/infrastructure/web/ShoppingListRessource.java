@@ -32,7 +32,7 @@ public class ShoppingListRessource {
     }
 
     @PostMapping
-    public ShoppingListIdDto createNewShoppingList(@RequestBody ShoppingListDto shoppingListId) {
+    public ShoppingListIdDto createNewShoppingList(@RequestBody ShoppingListDto shoppingList) {
         return new ShoppingListIdDto();
     }
 

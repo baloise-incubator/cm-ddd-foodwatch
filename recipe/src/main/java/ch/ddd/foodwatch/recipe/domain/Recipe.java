@@ -10,6 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder(toBuilder = true)
 public class Recipe {
+    private final RecipeId recipeId;
     private final Integer servings;
     private final List<Ingredient> ingredientList;
     private final List<RecipeStep> recipeSteps;

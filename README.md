@@ -2,6 +2,14 @@
 
 See [DDD Community Home](https://confluence.baloisenet.com/atlassian/x/1AV5a).
 
+
+### Prerequisites
+
+ - Git.
+ - Maven.
+ - [JDK 14](https://jdk.java.net/java-se-ri/14)
+ - Lombok
+ 
 ## Subdomains
 - [food](./food)
 - [recipe](./recipe)

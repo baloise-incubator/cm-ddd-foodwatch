@@ -1,7 +1,14 @@
 package ch.ddd.foodwatch.recipe.infrastructure.persistence;
 
-import ch.ddd.foodwatch.recipe.domain.*;
 import org.springframework.stereotype.Repository;
+
+import ch.ddd.foodwatch.recipe.domain.FoodId;
+import ch.ddd.foodwatch.recipe.domain.Ingredient;
+import ch.ddd.foodwatch.recipe.domain.Recipe;
+import ch.ddd.foodwatch.recipe.domain.RecipeId;
+import ch.ddd.foodwatch.recipe.domain.RecipeStep;
+import ch.ddd.foodwatch.recipe.domain.Unit;
+import ch.ddd.foodwatch.recipe.domain.UnitQuantity;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,8 +23,9 @@ public class RecipeRepository {
         recipes.add(createExampleRecipe());
     }
 
-    private Recipe createExampleRecipe() {
+    public Recipe createExampleRecipe() {
         return Recipe.builder()
+                .recipeId(new RecipeId(1))
                 .servings(4)
                 .ingredientList(List.of(
                         Ingredient.builder().food(FoodId.ofId("penne"))
@@ -35,7 +43,8 @@ public class RecipeRepository {
         return Collections.unmodifiableList(recipes);
     }
 
-    public Recipe findRecipeById(String recipeId) {
+
+    public Recipe findRecipeById(RecipeId recipeId) {
         return recipes.get(0);  // TODO implement recipe ids
     }
 }

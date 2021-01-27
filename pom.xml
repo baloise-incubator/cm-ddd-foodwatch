@@ -11,6 +11,8 @@
     <modules>
         <module>food</module>
         <module>recipe</module>
+        <module>recipe-api</module>
         <module>shopping</module>
+        <module>order</module>
     </modules>
 </project>
