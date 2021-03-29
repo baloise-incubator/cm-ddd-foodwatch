@@ -14,15 +14,22 @@ See [DDD Community Home](https://confluence.baloisenet.com/atlassian/x/1AV5a).
 - [food](./food)
 - [recipe](./recipe)
 - [shopping](./shopping)
+- [order](./order)
 
 ## Build & run the example code
 
+Normal maven build:
 ```
 mvn clean package
-java -jar recipe/target/foodwatch-recipe-0.0.1-SNAPSHOT.jar
-
 ```
 
+In order to run the system you need to start the 4 applications separately:
+```shell
+java -jar order/target/*.jar      # listens on port 8080
+java -jar food/target/*.jar       # listens on port 8081
+java -jar recipe/target/*.jar     # listens on port 8082
+java -jar shopping/target/*.jar   # listens on port 8083
+```
 
 ## Use Cases
 
