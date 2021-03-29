@@ -1,16 +1,16 @@
 package ch.ddd.foodwatch.recipe.api.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+
+import java.util.List;
+
+@Data
+@AllArgsConstructor
+@Builder
 public class RecipeDto {
     private int recipeId;
-
-    public RecipeDto(){this(0);}
-    public RecipeDto(int recipeId){ this.recipeId = recipeId;}
-
-    public int getRecipeId() {
-        return recipeId;
-    }
-
-    public void setRecipeId(int recipeId) {
-        this.recipeId = recipeId;
-    }
+    private int serves;
+    private List<IngredientDto> ingredients;
 }
