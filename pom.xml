@@ -13,6 +13,7 @@
         <module>recipe</module>
         <module>recipe-api</module>
         <module>shopping</module>
+        <module>shopping-api</module>
         <module>order</module>
     </modules>
 </project>

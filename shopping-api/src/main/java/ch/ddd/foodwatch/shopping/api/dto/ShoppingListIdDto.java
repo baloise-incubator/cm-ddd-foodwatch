@@ -1,4 +1,4 @@
-package ch.ddd.foodwatch.shopping.infrastructure.web;
+package ch.ddd.foodwatch.shopping.api.dto;
 
 public class ShoppingListIdDto {
 
