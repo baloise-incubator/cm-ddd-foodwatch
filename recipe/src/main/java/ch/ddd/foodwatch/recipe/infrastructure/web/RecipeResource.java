@@ -17,12 +17,12 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/recipes", produces = MediaType.APPLICATION_JSON_VALUE)
-public class RecipeRessource {
+public class RecipeResource {
 
     private final RecipeRepository recipeRepository;
 
     @Autowired
-    public RecipeRessource(RecipeRepository recipeRepository) {
+    public RecipeResource(RecipeRepository recipeRepository) {
         this.recipeRepository = recipeRepository;
     }
 

@@ -13,12 +13,12 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/shoppingLists", produces = MediaType.APPLICATION_JSON_VALUE)
-public class ShoppingListRessource {
+public class ShoppingListResource {
 
     private final ShoppingRepository repository;
 
     @Autowired
-    public ShoppingListRessource(ShoppingRepository repository) {
+    public ShoppingListResource(ShoppingRepository repository) {
         this.repository = repository;
     }
 

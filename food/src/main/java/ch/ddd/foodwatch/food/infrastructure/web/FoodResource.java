@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/foods", produces = MediaType.APPLICATION_JSON_VALUE)
-public class FoodRessource {
+public class FoodResource {
 }
