@@ -5,9 +5,11 @@ import ch.ddd.foodwatch.shopping.api.dto.ShoppingListIdDto;
 import ch.ddd.foodwatch.shopping.application.ShoppingListService;
 import ch.ddd.foodwatch.shopping.domain.ShoppingList;
 import ch.ddd.foodwatch.shopping.domain.ShoppingListId;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.net.URI;
 import java.util.List;
@@ -30,7 +32,11 @@ public class ShoppingListResource {
 
     @GetMapping(path = "/{shoppingListId}")
     public ShoppingList getShoppingListById(@PathVariable String shoppingListId) {
-        return shoppingListService.findById(new ShoppingListId(UUID.fromString(shoppingListId)));
+        ShoppingList shoppingList = shoppingListService.findById(new ShoppingListId(UUID.fromString(shoppingListId)));
+        if (shoppingList == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        return shoppingList;
     }
 
     @PostMapping
