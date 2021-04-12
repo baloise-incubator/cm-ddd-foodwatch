@@ -19,7 +19,7 @@ public class FoodRessource {
     private final FoodService foodService;
 
     @GetMapping
-    public FoodDto findFoodById(@RequestParam("name") String name) {
+    public FoodDto findFoodByName(@RequestParam("name") String name) {
         return map(foodService.getFoodByName(name));
     }
 
