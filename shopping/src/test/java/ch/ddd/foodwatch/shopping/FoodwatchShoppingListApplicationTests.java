@@ -11,11 +11,13 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -23,15 +25,6 @@ class FoodwatchShoppingListApplicationTests {
 
     @Autowired
     private MockMvc mockMvc;
-
-    @Test
-    void contextLoads() throws Exception {
-        var id = "fcbe4529-cd46-4c02-a36b-9ba81cd98ce4";
-        String expectedJsonContent = "{\"shoppingListId\":{\"id\":\"fcbe4529-cd46-4c02-a36b-9ba81cd98ce4\"}}";
-        this.mockMvc.perform(get("/shoppingLists/" + id))
-                .andDo(print())
-                .andExpect(content().json(expectedJsonContent));
-    }
 
     @Test
     void testShoppingListGenerationByRecipeId() throws Exception {
@@ -45,4 +38,10 @@ class FoodwatchShoppingListApplicationTests {
                 .andExpect(content().json(gson.toJson(new ShoppingListIdDto())));
     }
 
+    @Test
+    void invalid_id_gives_404() throws Exception {
+        String invalidId = UUID.randomUUID().toString();
+        this.mockMvc.perform(get("/shoppingLists/" + invalidId))
+                .andExpect(status().isNotFound());
+    }
 }

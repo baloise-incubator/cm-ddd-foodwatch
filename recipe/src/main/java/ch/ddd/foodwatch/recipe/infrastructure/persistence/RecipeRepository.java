@@ -1,18 +1,12 @@
 package ch.ddd.foodwatch.recipe.infrastructure.persistence;
 
+import ch.ddd.foodwatch.recipe.domain.*;
 import org.springframework.stereotype.Repository;
-
-import ch.ddd.foodwatch.recipe.domain.FoodId;
-import ch.ddd.foodwatch.recipe.domain.Ingredient;
-import ch.ddd.foodwatch.recipe.domain.Recipe;
-import ch.ddd.foodwatch.recipe.domain.RecipeId;
-import ch.ddd.foodwatch.recipe.domain.RecipeStep;
-import ch.ddd.foodwatch.recipe.domain.Unit;
-import ch.ddd.foodwatch.recipe.domain.UnitQuantity;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class RecipeRepository {
@@ -44,7 +38,7 @@ public class RecipeRepository {
     }
 
 
-    public Recipe findRecipeById(RecipeId recipeId) {
-        return recipes.get(0);  // TODO implement recipe ids
+    public Optional<Recipe> findRecipeById(RecipeId recipeId) {
+        return recipes.stream().filter(r -> recipeId.equals(r.getRecipeId())).findFirst();
     }
 }
