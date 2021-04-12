@@ -9,6 +9,9 @@ See [DDD Community Home](https://confluence.baloisenet.com/atlassian/x/1AV5a).
  - Maven.
  - [JDK 14](https://jdk.java.net/java-se-ri/14)
  - Lombok
+
+## Context map
+![contextMap](.docs/img/foodwatch1.png) 
  
 ## Subdomains
 - [food](./food)
