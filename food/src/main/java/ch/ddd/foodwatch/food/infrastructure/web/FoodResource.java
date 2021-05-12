@@ -14,7 +14,7 @@ import ch.ddd.foodwatch.food.domain.Food;
 @RestController
 @RequestMapping(value = "/foods", produces = MediaType.APPLICATION_JSON_VALUE)
 @AllArgsConstructor
-public class FoodRessource {
+public class FoodResource {
 
     private final FoodService foodService;
 
@@ -24,6 +24,6 @@ public class FoodRessource {
     }
 
     private FoodDto map(Food foodByName) {
-        return new FoodDto(foodByName.getFoodId().getId().toString(), foodByName.getName(), foodByName.getCategory(), foodByName.getImageUrl());
+        return new FoodDto(foodByName.getFoodId().getId().toString(), foodByName.getName(), foodByName.getCategory(), foodByName.getImageUrl(), foodByName.getEdamameId());
     }
 }

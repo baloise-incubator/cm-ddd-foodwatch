@@ -10,4 +10,5 @@ public class Food {
     private final String name;
     private final String category;
     private final String imageUrl;
+    private final String edamameId;
 }

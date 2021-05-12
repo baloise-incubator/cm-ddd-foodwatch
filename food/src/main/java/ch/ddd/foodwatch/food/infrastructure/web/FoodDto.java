@@ -10,4 +10,5 @@ public class FoodDto {
     private String name;
     private String category;
     private String imageUrl;
+    private String edamameId;
 }
