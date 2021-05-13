@@ -18,3 +18,6 @@ jobs:
         java-version: 14
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+      env:
+        EDAMAME_APP_ID: ${{ secrets.EDAMAME_APP_ID }}
+        EDAMAME_APP_KEY: ${{ secrets.EDAMAME_APP_KEY }}
