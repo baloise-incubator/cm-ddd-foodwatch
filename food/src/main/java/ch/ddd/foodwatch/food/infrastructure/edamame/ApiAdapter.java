@@ -23,22 +23,12 @@ import reactor.netty.tcp.ProxyProvider;
 @AllArgsConstructor
 public class ApiAdapter {
     private final EdamameProperties edamameProperties;
+    private final ProxyProperties proxyProperties;
     private final String API_PREFIX = "api/food-database/v2/parser";
 
     public Food getFoodByName(String name) {
         try {
-            final SslContext sslContext = SslContextBuilder
-                    .forClient()
-                    .trustManager(InsecureTrustManagerFactory.INSTANCE)
-                    .build();
-
-            final HttpClient httpClient = HttpClient.create()
-                    .secure(t -> t.sslContext(sslContext))
-                    .tcpConfiguration(tcpClient -> tcpClient
-                            .proxy(proxy -> proxy
-                                    .type(ProxyProvider.Proxy.HTTP)
-                                    .host("localhost")
-                                    .port(8888)));
+            final HttpClient httpClient = getHttpClient();
 
             final WebClient client2 = WebClient.builder()
                     .baseUrl("https://api.edamam.com")
@@ -63,5 +53,24 @@ public class ApiAdapter {
         } catch (SSLException e) {
             throw new IllegalStateException(e);
         }
+    }
+
+    private HttpClient getHttpClient() throws SSLException {
+        if (!proxyProperties.isEnabled()) {
+            return HttpClient.create();
+        }
+
+        final SslContext sslContext = SslContextBuilder
+                .forClient()
+                .trustManager(InsecureTrustManagerFactory.INSTANCE)
+                .build();
+
+        return HttpClient.create()
+                .secure(t -> t.sslContext(sslContext))
+                .tcpConfiguration(tcpClient -> tcpClient
+                        .proxy(proxy -> proxy
+                                .type(ProxyProvider.Proxy.HTTP)
+                                .host(proxyProperties.getHost())
+                                .port(8888)));
     }
 }
